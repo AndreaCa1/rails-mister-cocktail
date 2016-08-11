@@ -21,7 +21,7 @@ before_action :set_cocktail, only: [:new, :create, :destroy]
 
   def destroy
     @cocktail.destroy
-    respond_to do |format|
+      respond_to do |format|
       redirect_to cocktails_url
     end
   end
