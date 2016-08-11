@@ -1,0 +1,18 @@
+<!-- <h1><%= @restaurant.name %></h1>
+<%= image_tag "http://images.google.fr/imgres?imgurl=http%3A%2F%2Fimg1.gtsstatic.com%2Fwallpapers%2F7ff23ab8879eda804d7641a2cf0647f7_large.jpeg&imgrefurl=http%3A%2F%2Fwww.gentside.com%2Fcocktail%2Fwallpaper&h=1600&w=2560&tbnid=8HaBu2bOac1_zM%3A&docid=OIPvNl4395B_EM&ei=p5msV8GGDsOQaODCmPgC&tbm=isch&iact=rc&uact=3&dur=256&page=1&start=0&ndsp=9&ved=0ahUKEwiB9r_c1rnOAhVDCBoKHWAhBi8QMwg3KAIwAg&bih=507&biw=1024" %>
+<h2>
+  <%= pluralize @cocktail.doses.size, "dose" %>
+</h2>
+
+<div id="dosee">
+  <% if @cocktail.doses.blank? %>
+    Be the first to leave a review for <%= @restaurant.name %>
+  <% else %>
+    <% @restaurant.reviews.each do |review| %>
+      <%= review.content %>
+      <%= review.rating %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %> -->
