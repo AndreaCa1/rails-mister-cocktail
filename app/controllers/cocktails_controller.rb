@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show, :index, :create, :new]
+  before_action :set_cocktail, only: [:show]
 
   def index
     @cocktails = Cocktail.all
@@ -15,7 +15,6 @@ class CocktailsController < ApplicationController
   def new
     @cocktail = Cocktail.new
   end
-
 
   # POST /restaurants
   # POST /restaurants.json
@@ -37,6 +36,6 @@ class CocktailsController < ApplicationController
   end
 
   def set_cocktail
-    @cocktail = Cocktail.find(params[:cocktail_id])
+    @cocktail = Cocktail.find(params[:id])
   end
 end
