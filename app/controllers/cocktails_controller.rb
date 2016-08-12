@@ -1,5 +1,4 @@
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show]
 
   def index
     @cocktails = Cocktail.all
@@ -8,7 +7,8 @@ class CocktailsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
-    @ingredient =Ingredient.new
+    @cocktail = Cocktail.find(params[:id])
+    @dose = Dose.new
   end
 
   # GET /restaurants/new
@@ -20,22 +20,17 @@ class CocktailsController < ApplicationController
   # POST /restaurants.json
   def create
     @cocktail = Cocktail.new(cocktail_params)
-    respond_to do |format|
       if @cocktail.save
-        redirect_to @cocktail_path
+        redirect_to cocktail_path(@cocktail)
       else
-        render :new
+        render 'new' #construits moi le html et re balance le au navigateur
       end
     end
-  end
 
   private
 
   def cocktail_params
     params.require(:cocktail).permit(:name)
   end
-
-  def set_cocktail
-    @cocktail = Cocktail.find(params[:id])
-  end
 end
+

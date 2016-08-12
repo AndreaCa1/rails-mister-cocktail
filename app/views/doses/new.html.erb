@@ -1,13 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1><%= @cocktail.name %></h1>
-      <ul class="list-unstyled">
-        <% @cocktail.doses.each do |dose| %>
-          <li><%= dose.description %> of <%= link_to dose.ingredient.name, ingredient_path(dose.ingredient) %> <%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %></li>
-        <% end %>
-      </ul>
-      <h2>Add a dose</h2>
+      <h1>New Dose for <%= @cocktail.name %></h1>
       <%= simple_form_for([@cocktail, @dose]) do |f| %>
         <%= f.input :description, placeholder: "5cl" %>
         <%= f.association :ingredient %>
@@ -17,3 +11,4 @@
     </div>
   </div>
 </div>
+
